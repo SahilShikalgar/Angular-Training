@@ -15,19 +15,19 @@
 </div>
 <div class="row">
     <div class="col-md-12">
-        <div class="btn-group">
+        <div class="btn-group" appDropdown [dropdownMenu]="dropdownMenu">
             <button type="button" class="btn btn-primary dropdown-toggle">
                 Manage Recipe
                 <span class="caret"></span>
             </button>
-            <ul class="dropdown-menu">
-                <li>
+            <ul class="dropdown-menu" #dropdownMenu>
+                <li class="dropdown-item">
                     <a href="#">To Shopping List</a>    
                 </li>
-                <li>
+                <li class="dropdown-item">
                     <a href="#">Edit Recipe</a>    
                 </li>
-                <li>
+                <li class="dropdown-item">
                     <a href="#">Delete Recipe</a>    
                 </li>
             </ul>
