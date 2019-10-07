@@ -28,7 +28,7 @@ export class RecipeEditComponent implements OnInit {
         }
       );
   }
-  
+
   private initForm() {
     let recipeName = '';
     let recipeImagePath = '';
@@ -64,25 +64,25 @@ export class RecipeEditComponent implements OnInit {
     })
   }
 
-  getControls() { 
-    return (this.recipeForm.get('ingredients') as FormArray).controls; 
+  getControls() {
+    return (this.recipeForm.get('ingredients') as FormArray).controls;
   }
 
   onSubmit() {
-    if(this.editMode)
+    if (this.editMode) {
       this.recipeService.updateRecipe(this.id, this.recipeForm.value);
-    else 
+    } else {
       this.recipeService.addRecipe(this.recipeForm.value);
-    
+    }
     this.onCancel();
   }
 
   onAddIngredient() {
-    (<FormArray>this.recipeForm.get('ingredients')).push(
+    (this.recipeForm.get('ingredients') as FormArray).push(
       new FormGroup({
-        'name': new FormControl(null, Validators.required),
-        'amount': new FormControl(null, [ 
-          Validators.required, 
+        name: new FormControl(null, Validators.required),
+        amount: new FormControl(null, [
+          Validators.required,
           Validators.pattern(/^[1-9]+[0-9]*$/)])
       })
     );
@@ -93,6 +93,6 @@ export class RecipeEditComponent implements OnInit {
   }
 
   onDeleteIngredient(index: number) {
-    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+    (this.recipeForm.get('ingredients') as FormArray).removeAt(index);
   }
 }
