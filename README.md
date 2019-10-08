@@ -1,4 +1,4 @@
-# Angular-Training
+# Shopping Cart App [Angular-Training]
 
 This app is hosted using Firebase Hosting
 
